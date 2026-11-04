@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0829B8"/>
+      <stop offset=".48" stop-color="#087DFA"/>
+      <stop offset="1" stop-color="#061B8D"/>
+    </linearGradient>
+    <linearGradient id="flix" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#13B9FF"/>
+      <stop offset="1" stop-color="#1248F5"/>
+    </linearGradient>
+  </defs>
+  <!-- Transparent background: no background rectangle -->
+  <path d="M365 105 H575 C665 105 720 157 720 232 C720 286 691 323 646 343
+           C710 359 752 405 752 472 C752 557 684 615 579 615 H365 Z"
+        fill="url(#blue)"/>
+  <path d="M365 450 C435 393 520 362 646 343 C710 359 752 405 752 472
+           C752 557 684 615 579 615 H365 Z" fill="#071A83" opacity=".52"/>
+  <path d="M478 250 Q478 226 501 239 L603 298 Q625 311 603 325 L501 385
+           Q478 399 478 374 Z" fill="#020817"/>
+  <text x="600" y="790" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="156" font-weight="800"
+        letter-spacing="-5" fill="#F5F7FF">BOT<tspan fill="url(#flix)">FLIX</tspan></text>
+</svg>

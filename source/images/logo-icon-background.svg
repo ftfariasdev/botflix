@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0829B8"/>
+      <stop offset=".48" stop-color="#087DFA"/>
+      <stop offset="1" stop-color="#061B8D"/>
+    </linearGradient>
+    <mask id="play-cutout" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+      <rect width="512" height="512" fill="white"/>
+      <path d="M207 183 Q207 163 226 174 L316 226 Q337 238 316 251 L226 303 Q207 315 207 295 Z"
+            fill="black"/>
+    </mask>
+  </defs>
+  <!-- Ícone isolado com o símbolo de play recortado: área interna transparente -->
+  <g mask="url(#play-cutout)">
+    <path d="M112 64 H286 C361 64 408 108 408 172 C408 218 384 249 347 267
+             C400 283 432 321 432 378 C432 450 373 488 286 488 H112 Z"
+          fill="url(#blue)"/>
+    <path d="M112 342 C171 294 242 272 347 267 C400 283 432 321 432 378
+             C432 450 373 488 286 488 H112 Z" fill="#071A83" opacity=".52"/>
+  </g>
+</svg>
