@@ -1,0 +1,12 @@
+{
+  "welcome": "Olá, {username}! Seja bem-vindo ao nosso bot. Como posso te ajudar hoje?",
+  "menu": {
+    "option_1": "1. Ver perfil",
+    "option_2": "2. Falar com suporte",
+    "change_language": "3. Mudar idioma / Change language"
+  },
+  "errors": {
+    "invalid_option": "⚠️ Opção inválida. Por favor, escolha uma opção do menu.",
+    "system_error": "❌ Ocorreu um erro interno. Tente novamente mais tarde."
+  }
+}
