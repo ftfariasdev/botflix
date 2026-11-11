@@ -1,12 +1,12 @@
 {
-  "welcome": "Hello, {username}! Welcome to our bot. How can I help you today?",
-  "menu": {
-    "option_1": "1. View profile",
-    "option_2": "2. Contact support",
-    "change_language": "3. Mudar idioma / Change language"
+  "WELCOME": "Hello, {username}! Welcome to our bot. How can I help you today?",
+  "MENU": {
+    "OPTION_1": "1. View profile",
+    "OPTION_2": "2. Contact support",
+    "CHANGE_LANGUAGE": "3. Mudar idioma / Change language"
   },
-  "errors": {
-    "invalid_option": "⚠️ Invalid option. Please choose an option from the menu.",
-    "system_error": "❌ An internal error occurred. Please try again later."
+  "ERRORS": {
+    "INVALID_OPTION": "⚠️ Invalid option. Please choose an option from the menu.",
+    "SYSTEM_ERROR": "❌ An internal error occurred. Please try again later."
   }
 }
