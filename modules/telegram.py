@@ -19,12 +19,14 @@ def send_message(chat_id: int, text: str) -> None:
 
 def build_welcome(user: dict) -> str:
     lang = user.get("language_code")  # sent by Telegram, e.g. "pt-br"
-    return "\n".join([
-        t("WELCOME", lang, username=user.get("first_name", "")),
-        t("MENU.OPTION_1", lang),
-        t("MENU.OPTION_2", lang),
-        t("MENU.CHANGE_LANGUAGE", lang),
-    ])
+    return "\n".join(
+        [
+            t("WELCOME", lang, username=user.get("first_name", "")),
+            t("MENU.OPTION_1", lang),
+            t("MENU.OPTION_2", lang),
+            t("MENU.CHANGE_LANGUAGE", lang),
+        ]
+    )
 
 
 def handle_update(update: dict) -> None:
