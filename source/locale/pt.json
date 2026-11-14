@@ -8,5 +8,12 @@
   "ERRORS": {
     "INVALID_OPTION": "⚠️ Opção inválida. Por favor, escolha uma opção do menu.",
     "SYSTEM_ERROR": "❌ Ocorreu um erro interno. Tente novamente mais tarde."
+  },
+    "MOVIE_INFO": {
+    "TITLE": "Título:",
+    "YEAR": "Ano:",
+    "GENRE": "Gênero:",
+    "PLOT": "Sinopse:",
+    "RATING": "Avaliação:"
   }
 }

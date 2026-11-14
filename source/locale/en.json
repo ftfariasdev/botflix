@@ -7,6 +7,14 @@
   },
   "ERRORS": {
     "INVALID_OPTION": "⚠️ Invalid option. Please choose an option from the menu.",
-    "SYSTEM_ERROR": "❌ An internal error occurred. Please try again later."
+    "SYSTEM_ERROR": "❌ An internal error occurred. Please try again later.",
+    "INVALID_SEARCH": "❓ Movie not found"
+  },
+    "MOVIE_INFO": {
+    "TITLE": "Title:",
+    "YEAR": "Year:",
+    "GENRE": "Genre:",
+    "PLOT": "Plot:",
+    "RATING": "Rating:"
   }
 }
