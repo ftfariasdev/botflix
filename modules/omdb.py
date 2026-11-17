@@ -1,9 +1,10 @@
 import os
 from dotenv import load_dotenv
+from i18n import t
 import requests
-load_dotenv(".env.example")
+load_dotenv(".env")
 
-def movie_search(movie):
+def movie_search(movie, lang="en"):
     movie_info = movie.rsplit(" ", 1)
     url = "https://www.omdbapi.com/"
 
@@ -31,15 +32,17 @@ def movie_search(movie):
             "apikey": os.getenv("OMDB_TOKEN")
         })
         data = response.json()
-# this can and will be changed later to work with the telegram bot.
+
     if data.get("Response") == "False":
-        print("\nMovie not found.")
-    else:
-        print("Title:", data["Title"])
-        print("Year:", data["Year"])
-        print("Genre:", data["Genre"])
-        print("Plot:", data["Plot"])
-        print("IMDB Rating:", data["imdbRating"])
+        return t("ERRORS.INVALID_SEARCH", lang)
+
+    return "\n".join([
+        f'{t("MOVIE_INFO.TITLE", lang)} {data["Title"]}',
+        f'{t("MOVIE_INFO.YEAR", lang)} {data["Year"]}',
+        f'{t("MOVIE_INFO.GENRE", lang)} {data["Genre"]}',
+        f'{t("MOVIE_INFO.PLOT", lang)} {data["Plot"]}',
+        f'{t("MOVIE_INFO.RATING", lang)} {data["imdbRating"]}',
+    ])
 
 # An example of how it can take a string from somewhere else and use it to search a movie.
 print(movie_search("avengers 2019"))
