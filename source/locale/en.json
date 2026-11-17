@@ -17,7 +17,8 @@
   },
   "MOVIE": {
     "COMING_SOON": "🚧 Movie search coming soon!",
-    "WRITE_MOVIE": "Enter the movie you want to search for!"
+    "WRITE_MOVIE": "Enter the movie you want to search for!",
+    "CONTINUE": "Choose an option from the menu."
   },
   "ERRORS": {
     "INVALID_OPTION": "⚠️ Invalid option. Please choose an option from the menu.",

@@ -77,11 +77,11 @@ def verification_message(data_updates):
             reply = message.get("reply_to_message") 
             if reply and reply.get("text") == t("MOVIE.WRITE_MOVIE", lang):
                 movie = movie_search(text)
-                print(movie)
-                if movie:
-                    send_movie(chat_id, movie, lang)
-                else:
-                    send_message(chat_id, "Movie not found.")  # or a t("...") key
+                if not movie:
+                    send_message(chat_id, t("ERRORS.INVALID_SEARCH", lang))
+                    send_message(chat_id, t("MOVIE.CONTINUE", lang), get_main_menu_keyboard(lang))
+                    continue
+                send_movie(chat_id, movie, lang)
                 continue
 
             if text == "/language" or text == t("OPTIONS.SELECT_LANGUAGE", lang):   # 79
@@ -148,6 +148,7 @@ def send_movie(chat_id, movie, lang):
         )
     else:
         send_message(chat_id, texto)
+    send_message(chat_id, t("MOVIE.CONTINUE", lang), get_main_menu_keyboard(lang))
 
 def main():
     if not TOKEN:

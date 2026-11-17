@@ -17,7 +17,8 @@
   },
   "MOVIE": {
     "COMING_SOON": "🚧 A busca de filmes chega em breve!",
-    "WRITE_MOVIE": "Digite o filme que você deseja pesquisar!"
+    "WRITE_MOVIE": "Digite o filme que você deseja pesquisar!",
+    "CONTINUE": "Escolha uma opção do menu."
   },
   "ERRORS": {
     "INVALID_OPTION": "⚠️ Opção inválida. Por favor, escolha uma opção do menu.",
