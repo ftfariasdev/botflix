@@ -79,7 +79,7 @@ def verification_message(data_updates):
                 movie = movie_search(text)
                 print(movie)
                 if movie:
-                    send_message(chat_id, format_movie(movie, lang))
+                    send_movie(chat_id, movie, lang)
                 else:
                     send_message(chat_id, "Movie not found.")  # or a t("...") key
                 continue
@@ -137,6 +137,17 @@ def format_movie(movie, lang):
         f"{t('MOVIE_INFO.PLOT', lang)} {movie['Plot']}"
     )
 
+def send_movie(chat_id, movie, lang):
+    texto = format_movie(movie, lang)
+    url_poster = movie.get("Poster")
+
+    if url_poster and url_poster != "N/A":
+        requests.post(
+            f"{API_URL}/sendPhoto",          # use a mesma URL base do seu send_message
+            json={"chat_id": chat_id, "photo": url_poster, "caption": texto},
+        )
+    else:
+        send_message(chat_id, texto)
 
 def main():
     if not TOKEN:
