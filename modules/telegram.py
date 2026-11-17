@@ -7,24 +7,31 @@ from modules.i18n import t
 
 load_dotenv(".env")
 API_URL = f"https://api.telegram.org/bot{os.getenv('TG_TOKEN')}"
+TIMEOUT = 10
 
 
 def get_updates() -> list[dict]:
-    return requests.get(f"{API_URL}/getUpdates").json()["result"]
+    return requests.get(f"{API_URL}/getUpdates", timeout=TIMEOUT).json()["result"]
 
 
 def send_message(chat_id: int, text: str) -> None:
-    requests.post(f"{API_URL}/sendMessage", json={"chat_id": chat_id, "text": text})
+    requests.post(
+        f"{API_URL}/sendMessage",
+        json={"chat_id": chat_id, "text": text},
+        timeout=TIMEOUT,
+    )
 
 
 def build_welcome(user: dict) -> str:
     lang = user.get("language_code")  # sent by Telegram, e.g. "pt-br"
-    return "\n".join([
-        t("WELCOME", lang, username=user.get("first_name", "")),
-        t("MENU.OPTION_1", lang),
-        t("MENU.OPTION_2", lang),
-        t("MENU.CHANGE_LANGUAGE", lang),
-    ])
+    return "\n".join(
+        [
+            t("WELCOME", lang, username=user.get("first_name", "")),
+            t("MENU.OPTION_1", lang),
+            t("MENU.OPTION_2", lang),
+            t("MENU.CHANGE_LANGUAGE", lang),
+        ]
+    )
 
 
 def handle_update(update: dict) -> None:
