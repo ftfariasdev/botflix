@@ -6,8 +6,7 @@ DEFAULT_LANG = "en"
 
 # loads every locale file once, at import time
 _translations = {
-    f.stem: json.loads(f.read_text(encoding="utf-8"))
-    for f in LOCALE_DIR.glob("*.json")
+    f.stem: json.loads(f.read_text(encoding="utf-8")) for f in LOCALE_DIR.glob("*.json")
 }
 
 
