@@ -138,17 +138,17 @@ def format_movie(movie, lang):
     )
 
 def send_movie(chat_id, movie, lang):
-    texto = format_movie(movie, lang)
+    text = format_movie(movie, lang)
     url_poster = movie.get("Poster")
 
     if url_poster and url_poster != "N/A":
         requests.post(
-            f"{API_URL}/sendPhoto",          # use a mesma URL base do seu send_message
-            json={"chat_id": chat_id, "photo": url_poster, "caption": texto},
+            f"{API_URL}/sendPhoto",    
+            json={"chat_id": chat_id, "photo": url_poster, "caption": text},
         )
+        send_message(chat_id, t("MOVIE.CONTINUE", lang), get_main_menu_keyboard(lang))
     else:
-        send_message(chat_id, texto)
-    send_message(chat_id, t("MOVIE.CONTINUE", lang), get_main_menu_keyboard(lang))
+        send_message(chat_id, text, get_main_menu_keyboard(lang))
 
 def main():
     if not TOKEN:
