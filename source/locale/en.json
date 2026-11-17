@@ -5,12 +5,26 @@
     "OPTION_2": "2. Contact support",
     "CHANGE_LANGUAGE": "3. Mudar idioma / Change language"
   },
+  "OPTIONS": {
+    "MOVIES": "🎬 Movies",
+    "LANGUAGE": "🌐 Language",
+    "SELECT_LANGUAGE": "🌐 Choose your language:"
+  },
+  "LANGUAGES": {
+    "PORTUGUESE": "Português",
+    "ENGLISH": "English",
+    "SELECTED": "✅ Language set to English"
+  },
+  "MOVIE": {
+    "COMING_SOON": "🚧 Movie search coming soon!",
+    "WRITE_MOVIE": "Enter the movie you want to search for!"
+  },
   "ERRORS": {
     "INVALID_OPTION": "⚠️ Invalid option. Please choose an option from the menu.",
     "SYSTEM_ERROR": "❌ An internal error occurred. Please try again later.",
     "INVALID_SEARCH": "❓ Movie not found"
   },
-    "MOVIE_INFO": {
+  "MOVIE_INFO": {
     "TITLE": "Title:",
     "YEAR": "Year:",
     "GENRE": "Genre:",

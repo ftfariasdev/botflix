@@ -3,7 +3,8 @@ import time
 import logging
 import requests
 from dotenv import load_dotenv
-from modules.i18n import normalize_lang, t
+from i18n import normalize_lang, t
+from omdb import movie_search
 
 load_dotenv()
 
@@ -67,13 +68,23 @@ def verification_message(data_updates):
 
         # Handles incoming text messages
         if "message" in update:
-            message = update["message"]
-            text = message.get("text", "")
-            user = message.get("from", {})
-            chat_id = message.get("chat", {}).get("id")
-            lang = get_lang(user)
+            message = update["message"]                      
+            text = message.get("text", "")                   
+            user = message.get("from", {})                   
+            chat_id = message.get("chat", {}).get("id")      
+            lang = get_lang(user)                            
 
-            if text == "/language" or text == t("OPTIONS.SELECT_LANGUAGE", lang):
+            reply = message.get("reply_to_message") 
+            if reply and reply.get("text") == t("MOVIE.WRITE_MOVIE", lang):
+                movie = movie_search(text)
+                print(movie)
+                if movie:
+                    send_message(chat_id, format_movie(movie, lang))
+                else:
+                    send_message(chat_id, "Movie not found.")  # or a t("...") key
+                continue
+
+            if text == "/language" or text == t("OPTIONS.SELECT_LANGUAGE", lang):   # 79
                 send_message(
                     chat_id,
                     t("OPTIONS.SELECT_LANGUAGE", lang),
@@ -100,8 +111,8 @@ def verification_message(data_updates):
             if data == "movie":
                 send_message(
                     chat_id,
-                    t("MOVIE.COMING_SOON", lang),
-                    get_main_menu_keyboard(lang)
+                    t("MOVIE.WRITE_MOVIE", lang),
+                    {"force_reply": True}
                 )
 
             elif data == "language":
@@ -115,6 +126,16 @@ def verification_message(data_updates):
                 user_languages[user_id] = data
                 welcome = t("WELCOME", data, username=user.get("first_name", ""))
                 send_message(chat_id, welcome, get_main_menu_keyboard(data))
+
+#region Search movies
+def format_movie(movie, lang):
+    return (
+        f"{t('MOVIE_INFO.TITLE', lang)} {movie['Title']}\n"
+        f"{t('MOVIE_INFO.YEAR', lang)} {movie['Year']}\n"
+        f"{t('MOVIE_INFO.GENRE', lang)} {movie['Genre']}\n"
+        f"{t('MOVIE_INFO.RATING', lang)} {movie['imdbRating']}\n"
+        f"{t('MOVIE_INFO.PLOT', lang)} {movie['Plot']}"
+    )
 
 
 def main():
